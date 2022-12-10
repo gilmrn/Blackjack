@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <ctime>
+#include <time.h>
 #include <random>
 #include <algorithm>
 #include "Card.h"
@@ -131,8 +132,6 @@ void RandomRoll()
 
 void PlayBlackjack()
 {
-    srand(time(0));
-
     std::vector<Card> deck = CreateDeck();
 
     //Player gets 2 cards at the start
@@ -175,6 +174,9 @@ void PlayBlackjack()
 
 int main()
 {
+    //KEEPS THE SAME CARDS FROM BEING USED EVERY TIME
+    srand(time(NULL));
+
     //Program runs until 100 hands are completed
     while (roundNumber <= 100)
     {
